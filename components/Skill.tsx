@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {
   directionLeft?: boolean;
@@ -22,7 +23,7 @@ export default function Skill({ directionLeft, imageUrl, skillName }: Props) {
         whileHover={{ scale: 1.2 }}
         className="rounded-full bg-gray-900/80 border border-gray-800 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center p-2 transition-all duration-300"
       >
-        <img
+        <Image
           src={imageUrl}
           alt={skillName}
           className="w-10 h-10 md:w-12 md:h-12 object-contain"

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {
   companyLogo: string;
@@ -44,7 +45,7 @@ export default function ExperienceCard({
               className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#F7AB0A]/30 p-0.5"
               whileHover={{ scale: 1.05 }}
             >
-              <img 
+              <Image 
                 src={companyLogo} 
                 alt={`${companyName} Logo`} 
                 className="w-full h-full object-cover rounded-full" 
@@ -86,7 +87,7 @@ export default function ExperienceCard({
                 whileHover={{ y: -2 }}
                 className="p-2 bg-gray-800 rounded-lg hover:bg-[#F7AB0A]/10 transition-all"
               >
-                <img
+                <Image
                   src={icon}
                   alt="Tech icon"
                   className="h-5 w-5 object-contain"

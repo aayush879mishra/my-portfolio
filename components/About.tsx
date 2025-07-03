@@ -2,8 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutImg from "../public/me1.jpg";
+import Image from "next/image";
 
-type Props = {};
+type Props = object;
 
 export default function About({}: Props) {
   return (
@@ -34,7 +35,7 @@ export default function About({}: Props) {
         transition={{ duration: 1.2 }}
         className="relative mt-28 mb-8 md:mb-0 md:mt-0 md:mr-10"
       >
-        <img
+        <Image
           src={aboutImg.src}
           alt="Profile picture"
           className="w-48 h-48 rounded-full md:rounded-lg object-cover shadow-xl md:w-64 md:h-80 xl:w-72 xl:h-96 border-4 border-[#F7AB0A]/50 hover:border-[#F7AB0A] transition-all duration-300"
@@ -55,12 +56,12 @@ export default function About({}: Props) {
         
         <div className="flex flex-col space-y-4 text-base md:text-lg leading-relaxed text-gray-300">
           <p>
-            <span className="font-semibold text-white">Hi there!</span> I'm a passionate full-stack developer with expertise in modern web technologies.
+            <span className="font-semibold text-white">Hi there!</span> I&apos;m a passionate full-stack developer with expertise in modern web technologies.
           </p>
           
           <div className="relative pl-4 border-l-2 border-[#F7AB0A]/50">
             <p className="italic">
-              "I believe in clean code, thoughtful design, and continuous learning."
+              &quot;I believe in clean code, thoughtful design, and continuous learning.&quot;
             </p>
           </div>
           

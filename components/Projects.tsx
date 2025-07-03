@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 type Project = {
   id: number;
@@ -168,7 +169,7 @@ export default function Projects() {
                 className="flex-shrink-0 relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden shadow-lg"
                 whileHover={{ scale: 1.03 }}
               >
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"

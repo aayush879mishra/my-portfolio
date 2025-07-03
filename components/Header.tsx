@@ -3,7 +3,7 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaFileDownload, FaMailchimp } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 
 type Props = {};
