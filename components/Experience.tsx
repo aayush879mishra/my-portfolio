@@ -18,7 +18,7 @@ export default function Experience() {
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      companyLogo: "https://placehold.co/128x128/FFD700/000000?text=Digipal",
+      companyLogo: "./digipal.png",
       jobTitle: "Social Media Manager",
       companyName: "Digipal Solutions Pvt. Ltd.",
       techIcons: [
@@ -34,7 +34,7 @@ export default function Experience() {
     },
     {
       id: 2,
-      companyLogo: "https://placehold.co/128x128/ADD8E6/000000?text=SkillSpark",
+      companyLogo: "./skillspark.jpg",
       jobTitle: "Frontend Intern",
       companyName: "Skill Spark Pvt. Ltd.",
       techIcons: [

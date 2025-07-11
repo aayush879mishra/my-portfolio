@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import Image from "next/image";
 
 type Project = {
   id: number;
@@ -22,7 +21,7 @@ const projects: Project[] = [
     description:
       "Instagram-inspired social media app themed around the FRIENDS TV series. Includes user authentication, post sharing, comments, likes, and real-time chat.",
     image:
-      "https://images.unsplash.com/photo-1684132925971-31c258718bd1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "./mingle.avif",
     tech: [
       "MongoDB",
       "Express",
@@ -34,7 +33,7 @@ const projects: Project[] = [
       "Socket.io",
     ],
     tag: "Full-Stack",
-    liveUrl: "https://github.com/aayush879mishra", // Replace with actual if available
+    liveUrl: "https://github.com/aayush879mishra", 
     githubUrl: "https://github.com/aayush879mishra",
   },
   {
@@ -43,10 +42,10 @@ const projects: Project[] = [
     description:
       "A role-based web app for patients to book appointments and doctors/admins to manage slots and users. Includes real-time availability, JWT auth, and dashboards.",
     image:
-      "https://plus.unsplash.com/premium_photo-1663013439760-cb73ca606ae1?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "./docease.avif", 
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "JWT", "useContext"],
     tag: "Full-Stack",
-    liveUrl: "https://github.com/aayush879mishra", // Replace with actual if available
+    liveUrl: "https://github.com/aayush879mishra", 
     githubUrl: "https://github.com/aayush879mishra",
   },
   {
@@ -55,7 +54,7 @@ const projects: Project[] = [
     description:
       "Feature-rich blog platform with post creation, media upload, likes/comments, and modern UI. Uses CKEditor for editing, Firebase for storage, and Zod for validation.",
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1470&q=80",
+      "./blogworld.avif", 
     tech: [
       "MongoDB",
       "Express",
@@ -72,7 +71,7 @@ const projects: Project[] = [
       "React Icons",
     ],
     tag: "Full-Stack",
-    liveUrl: "https://github.com/aayush879mishra", // Replace with actual if available
+    liveUrl: "https://github.com/aayush879mishra", 
     githubUrl: "https://github.com/aayush879mishra",
   },
 ];
@@ -169,7 +168,7 @@ export default function Projects() {
                 className="flex-shrink-0 relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden shadow-lg"
                 whileHover={{ scale: 1.03 }}
               >
-                <Image
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"

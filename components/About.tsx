@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutImg from "../public/me1.jpg";
-import Image from "next/image";
 
 type Props = object;
 
@@ -35,7 +34,7 @@ export default function About({}: Props) {
         transition={{ duration: 1.2 }}
         className="relative mt-28 mb-8 md:mb-0 md:mt-0 md:mr-10"
       >
-        <Image
+        <img
           src={aboutImg.src}
           alt="Profile picture"
           className="w-48 h-48 rounded-full md:rounded-lg object-cover shadow-xl md:w-64 md:h-80 xl:w-72 xl:h-96 border-4 border-[#F7AB0A]/50 hover:border-[#F7AB0A] transition-all duration-300"

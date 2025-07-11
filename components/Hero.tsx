@@ -4,7 +4,6 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import img from "../public/me3.jpg";
 import Link from "next/link";
-import Image from "next/image";
 
 type Props = {};
 
@@ -21,7 +20,7 @@ export default function Hero({}: Props) {
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
-      <Image
+      <img
         src={img.src}
         className="relative rounded-full h-32 w-32 mx-auto object-cover transition-transform duration-300 hover:scale-110"
         alt="Ayush's Profile Picture"
