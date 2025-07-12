@@ -16,15 +16,7 @@ export default function About({}: Props) {
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#F7AB0A]/10 via-transparent to-[#F7AB0A]/10 opacity-20" />
 
-      {/* Section Title */}
-      <motion.h3
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-20 md:top-24 uppercase tracking-[15px] text-gray-400 text-xl md:text-2xl font-light"
-      >
-        About Me
-      </motion.h3>
+      
 
       {/* Profile Image - Circular on mobile, Rectangular on larger screens */}
       <motion.div
@@ -32,14 +24,14 @@ export default function About({}: Props) {
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
-        className="relative mt-28 mb-8 md:mb-0 md:mt-0 md:mr-10"
+        className="  mb-8 md:mb-0 md:mt-0 md:mr-10"
       >
         <img
           src={aboutImg.src}
           alt="Profile picture"
           className="w-48 h-48 rounded-full md:rounded-lg object-cover shadow-xl md:w-64 md:h-80 xl:w-72 xl:h-96 border-4 border-[#F7AB0A]/50 hover:border-[#F7AB0A] transition-all duration-300"
         />
-        <div className="absolute inset-0 rounded-full md:rounded-lg border-2 border-white/30 mix-blend-overlay pointer-events-none" />
+        <div className="absolute md:hidden inset-0 rounded-full md:rounded-lg border-2 border-white/30 mix-blend-overlay pointer-events-none" />
       </motion.div>
 
       {/* Content Section */}
@@ -49,6 +41,16 @@ export default function About({}: Props) {
         transition={{ duration: 1 }}
         className="space-y-6 px-0 md:px-10 max-w-2xl"
       >
+
+        {/* Section Title */}
+      <motion.h3
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="hidden md:block uppercase tracking-[15px] text-gray-400 text-xl md:text-2xl font-light"
+      >
+        About Me
+      </motion.h3>
         <h4 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#F7AB0A] to-yellow-300 bg-clip-text text-transparent">
           Crafting Digital Experiences
         </h4>

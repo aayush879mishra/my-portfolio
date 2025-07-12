@@ -15,7 +15,7 @@ type Project = {
 };
 
 const projects: Project[] = [
-  {
+   {
     id: 1,
     title: "Mingle - Social Media App",
     description:
@@ -76,129 +76,114 @@ const projects: Project[] = [
   },
 ];
 
-
 export default function Projects() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const startAutoScroll = () => {
-      if (projects.length <= 1) {
-        stopAutoScroll();
-        return;
-      }
-      if (intervalRef.current) return;
-      intervalRef.current = setInterval(() => {
-        if (!isPaused && scrollRef.current) {
-          const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-          if (scrollLeft + clientWidth >= scrollWidth - 1) {
-            scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-          } else {
-            scrollRef.current.scrollTo({
-              left: scrollLeft + clientWidth,
-              behavior: "smooth",
-            });
-          }
-        }
-      }, 5000);
+    if (projects.length <= 1) return;
+
+    const autoScroll = () => {
+      if (!scrollRef.current || isPaused) return;
+
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const maxScroll = scrollWidth - clientWidth;
+
+      const nextScroll = scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({
+        left: nextScroll >= maxScroll ? 0 : nextScroll,
+        behavior: "smooth",
+      });
     };
 
-    const stopAutoScroll = () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
+    intervalRef.current = setInterval(autoScroll, 5000);
 
-    startAutoScroll();
-    return () => stopAutoScroll();
-  }, [isPaused, projects.length]);
+    return () => clearInterval(intervalRef.current!);
+  }, [isPaused]);
 
   return (
-    <motion.div
+    <motion.section
+      id="projects"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.2 }}
-      className="relative min-h-screen flex flex-col items-center justify-start px-6 sm:px-8 md:px-10 mx-auto overflow-hidden pt-32 pb-20"
+      className="relative w-full space-y-6 min-h-screen px-4 sm:px-8 md:px-10 flex flex-col items-center justify-center"
     >
-      {/* Background Elements */}
-      {/* <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 to-gray-900 z-0" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#F7AB0A]/5 via-transparent to-transparent z-0" />
-      </div> */}
-
-      {/* Section Title */}
+      {/* Title */}
       <motion.h3
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-28 md:top-36 uppercase tracking-[15px] text-gray-400 text-xl md:text-2xl font-light z-30"
+        transition={{ duration: 0.8 }}
+        className="text-xl sm:text-2xl uppercase tracking-[14px] text-gray-400 mb-2 text-center"
       >
         Projects
       </motion.h3>
 
-      {/* Scrollable Container */}
+      {/* Description */}
+      {/* <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="text-gray-500 text-sm text-center mb-10 max-w-xl"
+      >
+        Swipe or drag to explore my full-stack and frontend projects.
+      </motion.p> */}
+
+      {/* Projects Carousel */}
       <div
         ref={scrollRef}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
-        className="relative w-full flex overflow-y-hidden overflow-x-scroll snap-x snap-mandatory scrollbar-hide scroll-smooth mt-8 md:mt-24"
-        style={{ height: "calc(100vh - 200px)" }}
+        className="w-full flex overflow-x-auto overflow-hidden snap-x snap-mandatory scrollbar-hide gap-8 scroll-smooth"
       >
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <div
             key={project.id}
-            className="w-screen flex-shrink-0 snap-center flex items-center justify-center px-4 md:px-10 h-full"
+            className="snap-center flex-shrink-0 w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] flex justify-center"
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="relative bg-gradient-to-br from-white/90 to-white/80 backdrop-blur-lg shadow-2xl rounded-2xl p-6 md:p-10 flex flex-col md:flex-row gap-8 items-center max-w-6xl w-full overflow-hidden z-40"
+              className="bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl shadow-xl p-4 w-full flex flex-col lg:flex-row gap-6 items-center"
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#F7AB0A]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Project Image */}
-              <motion.div 
-                className="flex-shrink-0 relative w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden shadow-lg"
+              {/* Image */}
+              <motion.div
                 whileHover={{ scale: 1.03 }}
+                className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-xl overflow-hidden"
               >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </motion.div>
 
-              {/* Project Content */}
-              <div className="text-center md:text-left space-y-4 flex-grow">
-                <div className="flex flex-col md:flex-row md:items-center gap-3">
-                  <h4 className="text-2xl md:text-3xl font-bold text-gray-800">
+              {/* Info */}
+              <div className="flex flex-col justify-between w-full h-full text-center lg:text-left space-y-2">
+                <div>
+                  <h4 className="text-xl md:text-2xl font-bold text-gray-800">
                     {project.title}
                   </h4>
-                  <span className="inline-block bg-[#F7AB0A]/20 text-[#7e6b42] font-semibold px-3 py-1 rounded-full text-xs uppercase">
+                  <p className="text-xs font-semibold bg-[#F7AB0A]/20 text-[#7e6b42] px-3 py-1 inline-block rounded-full mt-2 uppercase">
                     {project.tag}
-                  </span>
+                  </p>
                 </div>
 
                 <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                   {project.tech.map((tech, index) => (
                     <motion.span
                       key={index}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.05 }}
                       className="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full"
                     >
                       {tech}
@@ -206,26 +191,23 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Buttons */}
-                <div className="flex gap-4 mt-4 justify-center md:justify-start">
-                  <motion.a
+                <div className="flex gap-4 pt-2 justify-center lg:justify-start">
+                  <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 text-sm bg-[#F7AB0A] text-white rounded-lg hover:bg-[#f7ab0acc] transition shadow-md cursor-pointer relative z-50"
+                    className="flex items-center gap-2 px-4 py-2 bg-[#F7AB0A] text-white text-sm rounded-md hover:bg-[#e6a20a] transition"
                   >
-                    <FaExternalLinkAlt /> View Live
-                  </motion.a>
-                  <motion.a
+                    <FaExternalLinkAlt /> Live
+                  </a>
+                  <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition shadow-md cursor-pointer relative z-50"
+                    className="flex items-center gap-2 px-4 bg-gray-800 text-white text-sm rounded-md hover:bg-gray-700 transition"
                   >
                     <FaGithub /> GitHub
-                  </motion.a>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -238,24 +220,24 @@ export default function Projects() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-10 text-gray-500 text-sm flex items-center gap-2 z-30"
+        className=" text-gray-500 text-sm flex items-center gap-2"
       >
         <span>{isPaused ? "Paused" : "Scroll horizontally"}</span>
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="16" 
-          height="16" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#F7AB0A"
+          strokeWidth="2"
+          strokeLinecap="round"
           strokeLinejoin="round"
           className="animate-bounce-horizontal"
         >
-          <path d="M5 12h14M12 5l7 7-7 7"/>
+          <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 }

@@ -57,11 +57,11 @@ export default function Contact({}: Props) {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen w-full overflow-hidden">
+    <section id="contact" className="relative min-h-screen w-full overflow-hidden pt-32 md:pt-0 flex flex-col items-center justify-center">
       {/* Decorative Background */}
       <div className="absolute top-0 right-0 w-1/2 h-full md:bg-[radial-gradient(circle_at_center,rgba(247,171,10,0.1)_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+      <div className="relative z-10 max-w-7xl space-y-6 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,13 +72,13 @@ export default function Contact({}: Props) {
           <h2 className="uppercase tracking-[15px] text-gray-400 text-xl md:text-2xl font-light">
             Get in touch
           </h2>
-          <p className="mt-4 text-sm leading-8 text-gray-500">
+          <p className=" text-sm leading-8 text-gray-500">
             I'd love to hear about your project. Let's build something amazing together.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className=" grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -124,7 +124,7 @@ export default function Contact({}: Props) {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-6 pb-12 md:pb-0"
           >
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div>
