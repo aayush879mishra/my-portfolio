@@ -54,6 +54,7 @@ export default function Header({}: Props) {
         <SocialIcon
           target="_blank"
           rel="noopener noreferrer"
+          url="https://github.com/aayush879mishra"
           network="github"
           fgColor="#B5B9C1"
           bgColor="transparent"
@@ -94,7 +95,7 @@ export default function Header({}: Props) {
   {/* Resume Download */}
   <div>
     <Link
-      href="/Ayush Mishra CVv.pdf"
+      href="/ayush-mishra-cv.pdf"
       download="Ayush_Mishra_Resume.pdf"
       className="text-sm text-[#B5B9C1] uppercase flex items-center justify-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105"
       target="_blank"

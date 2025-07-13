@@ -92,7 +92,7 @@ export default function Contact({}: Props) {
               </div>
               <div>
                 <h3 className="text-base font-semibold text-white">Phone</h3>
-                <p className="mt-1 text-sm text-gray-300">+977 9800000000</p>
+                <p className="mt-1 text-sm text-gray-300">+977 9865191908</p>
               </div>
             </div>
 

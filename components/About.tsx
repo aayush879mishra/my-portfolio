@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import aboutImg from "../public/me1.jpg";
+import aboutImg from "../public/me.jpg";
 
 type Props = object;
 
