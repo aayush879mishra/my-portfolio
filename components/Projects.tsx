@@ -74,6 +74,28 @@ const projects: Project[] = [
     liveUrl: "https://github.com/aayush879mishra", 
     githubUrl: "https://github.com/aayush879mishra",
   },
+  {
+    id: 4,
+    title: "Techspire - IT company website",
+    description:
+      "A responsive website for a tech company, showcasing services, team, and contact form. Worked on both user interface and admin dashboard.",
+    image:
+      "./it-company.jpg", 
+    tech: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "react query",
+      "quill",
+      "Cloudinary",
+      "React Icons",
+    ],
+    tag: "Frontend",
+    liveUrl: "https://github.com/aayush879mishra", 
+    githubUrl: "https://github.com/aayush879mishra",
+  },
 ];
 
 export default function Projects() {

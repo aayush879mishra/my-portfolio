@@ -8,7 +8,7 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div className="bg-[#232630] text-[#C1AA90] h-screen snap-y snap-mandatory overflow-y-scroll z-0  ">
+    <div className="bg-[#232630] text-[#C1AA90] h-screen snap-y snap-mandatory overflow-y-scroll z-0">
 
       <Header />
 
