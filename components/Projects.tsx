@@ -16,7 +16,7 @@ type Project = {
 
 const projects: Project[] = [
    {
-    id: 1,
+    id: 4,
     title: "Mingle - Social Media App",
     description:
       "Instagram-inspired social media app themed around the FRIENDS TV series. Includes user authentication, post sharing, comments, likes, and real-time chat.",
@@ -75,7 +75,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/aayush879mishra",
   },
   {
-    id: 4,
+    id: 1,
     title: "Techspire - IT company website",
     description:
       "A responsive website for a tech company, showcasing services, team, and contact form. Worked on both user interface and admin dashboard.",
@@ -93,7 +93,7 @@ const projects: Project[] = [
       "React Icons",
     ],
     tag: "Frontend",
-    liveUrl: "https://github.com/aayush879mishra", 
+    liveUrl: "https://tecnospire.com/", 
     githubUrl: "https://github.com/aayush879mishra",
   },
 ];
