@@ -85,7 +85,7 @@ export default function Experience() {
       </motion.h3>
 
       {/* Scrollable Cards Wrapper */}
-      <div className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-6 md:space-x-10  scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-[#F7AB0A]/80">
+      <div className="w-full flex overflow-x-auto snap-x snap-mandatory space-x-6 md:space-x-10 no-scrollbar">
         {experiences.map((exp, index) => (
           <div
             key={exp.id}
