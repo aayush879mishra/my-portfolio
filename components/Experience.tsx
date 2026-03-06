@@ -46,7 +46,24 @@ export default function Experience() {
         "Optimized web applications for maximum speed and scalability",
         "Collaborated with designers to implement modern UI/UX principles",
       ],
-    },
+    },{
+      id: 3,
+      companyLogo: "./ims_logo.jpg",
+      jobTitle: "System Implementation Trainee",
+      companyName: "IMS Software Pvt. Ltd.",
+      techIcons: [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+      ],
+      startDate: "sep 2025",
+      endDate: "Present",
+      summaryPoints: [
+        "Assisted in deployment, configuration, and user training of POS systems.",
+        "Handled database setup, system implementation, and configuration of backend modules.",
+        "Prepared and maintained IRD documentation for billing systems.",
+      ],
+    }
   ];
 
   return (

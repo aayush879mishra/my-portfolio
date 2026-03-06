@@ -95,7 +95,7 @@ export default function Header({}: Props) {
   {/* Resume Download */}
   <div>
     <Link
-      href="/ayush-mishra-cv.pdf"
+      href="/AYUSH_resume.pdf"
       download="Ayush_Mishra_Resume.pdf"
       className="text-sm text-[#B5B9C1] uppercase flex items-center justify-center gap-1 cursor-pointer transition-transform duration-300 hover:scale-105"
       target="_blank"
